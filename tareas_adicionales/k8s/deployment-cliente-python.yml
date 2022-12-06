@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-cliente-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: cliente-python
+  template:
+    metadata:
+      labels:
+        component: cliente-python
+    spec:
+      containers:
+        - name: pod-cliente-python
+          image: jfu08/cliente-python-rethinkdb 
