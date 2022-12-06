@@ -1,0 +1,16 @@
+services:
+  cliente_python:
+    #image: jfu08/cliente-python-rethinkdb
+    build: .
+    container_name: cliente-py
+    volumes:
+      - ./data:/code/data
+
+  servidor_rethinkdb:
+    image: rethinkdb
+    container_name: servidor-redb
+    ports:
+      - 8080:8080
+
+volumes:
+  data:
