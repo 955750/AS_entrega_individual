@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-cliente-python
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: cliente-python
+  template:
+    metadata:
+      labels:
+        component: cliente-python
+    spec:
+      volumes:
+        - name: backup-rethinkdb
+          persistentVolumeClaim:
+            claimName: persistent-volume-claim
+      containers:
+        - name: pod-cliente-python
+          image: jfu08/cliente-python-rethinkdb-volumenes
+          volumeMounts:
+            - name: backup-rethinkdb
+              mountPath: /code/data
+              subPath: backup
