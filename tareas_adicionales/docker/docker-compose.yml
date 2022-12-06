@@ -1,7 +1,6 @@
 services:
   cliente_python:
-    #image: jfu08/cliente-python-rethinkdb
-    build: .
+    image: jfu08/cliente-python-rethinkdb-volumenes
     container_name: cliente-py
     volumes:
       - ./data:/code/data

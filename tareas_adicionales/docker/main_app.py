@@ -8,10 +8,10 @@ if __name__ == "__main__":
 
     # Declarar variables necesarias para la conexión con la base de datos 
     host = 'servidor-redb'
-    port = 28015 # CONTAINER PORT
+    port = 28015
 
     # Establecer conexión con la base de datos
-    r.connect(host = host, port = port).repl() # MIRAR PARA QUÉ SIRVE 'REPL()' --> ALGO DE 'RUN()'
+    r.connect(host = host, port = port).repl()
     subprocess.run(["echo", "Se ha establecido la conexión con la base de datos"])
   
     # Restaurar backup de la base de datos
